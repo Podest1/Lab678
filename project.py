@@ -5,11 +5,13 @@ class Worker(QThread):
  def __init__(self, input_path, output_path):
   super().__init__()
   self.input_path = input_path
-  self.output_path = output_path def run(self):
+  self.output_path = output_path 
+ def run(self):
   try:
    self.sleep(2)
    self.finished.emit()
-  except Exception as e:   self.error.emit(str(e))
+  except Exception as e:   
+   self.error.emit(str(e))
 class ConverterUI(QWidget):
  def __init__(self):
   super().__init__()
